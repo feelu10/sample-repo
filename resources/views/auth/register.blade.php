@@ -63,6 +63,11 @@
         button[type="submit"]:hover {
             background-color: #0069d9;
         }
+        a{
+            text-decoration:none;
+            color: blue;
+            font-weight: 900;
+        }
     </style>
 </head>
 <body>
@@ -92,40 +97,8 @@
             <button type="submit">
                 Register
             </button>
+            <p>Have an account?<a href="/login"> Login Here!</a></p>
         </form>
     </div>
-    <script>
-        document.querySelector('#register-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            var email = document.querySelector('#email').value;
-            var password = document.querySelector('#password').value;
-            var confirmPassword = document.querySelector('#password-confirm').value;
-
-            if (password !== confirmPassword) {
-                alert('Passwords do not match');
-                return;
-            }
-
-            // Perform AJAX request to register endpoint
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '{{ route('register') }}');
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    // Registrationsuccessful, redirect to login page
-window.location.href = "{{ route('login') }}";
-} else {
-// Display error message
-alert(xhr.responseText);
-}
-};
-xhr.send(JSON.stringify({
-email: email,
-password: password
-}));
-});
-</script>
-
 </body>
 </html>

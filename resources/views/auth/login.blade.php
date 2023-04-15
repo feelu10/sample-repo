@@ -67,6 +67,11 @@
         .form-check label{
             margin: 3px 0 0 6px;
         }
+        a{
+            text-decoration:none;
+            color: blue;
+            font-weight: 900;
+        }
     </style>
 </head>
 <body>
@@ -133,6 +138,7 @@
                                     @endif
                                 </div>
                             </div>
+                            <p>Haven't an account? <a href="/register">Register Here! </a></p>
                         </form>
                     </div>
                 </div>
